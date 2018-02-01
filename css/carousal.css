@@ -1,0 +1,79 @@
+/* carousal */
+.btnModal {
+  cursor: pointer;
+}
+.caraList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 10000px;
+  position: relative;
+  transition: left 1s ease-in-out;
+}
+  .caraList li {
+    float: left;
+  }
+  .caraList figure {
+    padding: 0;
+    margin: 0;
+
+  }
+
+.caraNav {
+  cursor: pointer;
+}
+  .caraNav > span {
+    position: absolute;
+  }
+
+  .caraNav .btn {
+    display: block;
+    top: calc(50% - 20px);
+    font-size: 40px;
+    line-height: 40px;
+    background: rgba(0,0,0,0.3);
+    color: #333;
+    border-radius: 50px;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+  }
+    .caraNav .btn:hover {
+      color: #fff;
+      background: rgba(0,0,0,0.7);
+    }
+
+  .caraNav .btnLeft {
+    left: 1px;
+    text-indent: -4px;
+  }
+
+  .caraNav .btnRight {
+    right: 1px;
+    text-indent: 4px;
+  }
+
+.idxList {
+  position: absolute;
+  margin: 0;
+  padding: 10px 0;
+  width: 363px;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  background-color: rgba(0,0,0,0.3);
+}
+  .idxList li {
+    list-style: none;
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border: 1px solid #fff;
+    border-radius: 10px;
+    text-indent: -1000em;
+    margin: 0 10px 0 0;
+  }
+  .idxList li.selected {
+    font-weight: bold;
+    background-color: #fff;
+  }

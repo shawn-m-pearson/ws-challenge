@@ -1,0 +1,36 @@
+/* modal  */
+dialog.modal {
+  padding: 0;
+  margin: 0;
+  width: 363px;
+  height: 363px;
+  overflow: hidden;
+  position: fixed;
+  top: 10%;
+  left: calc(50% - (363px/2));
+  display: none;
+}
+  dialog.modal::before {
+    content: ' ';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 1000rem;
+    height: 100rem;
+    background-color: rgba(0,0,0,0.6);
+  }
+  dialog.modal > nav {
+    position: absolute;
+    z-index: 200;
+  }
+    dialog.modal nav.btnClose {
+      right: 0;
+      font-size: 40px;
+      line-height: 1;
+      padding: 3px 5px;
+      color: rgba(0,0,0,0.4);
+      cursor: pointer;
+    }
+      dialog.modal nav.btnClose:hover {
+        color: #fff;
+      }

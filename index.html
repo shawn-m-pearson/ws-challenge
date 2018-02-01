@@ -1,0 +1,98 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="manifest" href="site.webmanifest">
+        <link rel="apple-touch-icon" href="icon.png">
+        <!-- Place favicon.ico in the root directory -->
+
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/vendor/fa-svg-with-js.css">
+        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/modal.css">
+        <link rel="stylesheet" href="css/carousal.css">
+    </head>
+
+    <body>
+        <!--[if lte IE 9]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+        <![endif]-->
+
+
+
+        <!-- application content here -->
+        <article id="app" v-cloak>
+
+          <h1>{{ v.name }}</h1>
+          <section class="prodArea">
+            <ul class="prodDetList">
+              <template v-if="loaded">
+              <li v-for="prod in v.groups">
+                <figure class="prodThumb" v-bind:data-id="prod.id">
+                  <figcaption class="name btnModal" v-html="prod.name"></figcaption>
+                  <img v-bind:src="prod.hero.href" class="btnModal" />
+                  <figcaption class="price" v-if="typeof prod.priceRange !== 'undefined'" v-bind:data-id="prod.id">
+                    <!-- Uncomment to get a view that shows more data -->
+                    <!--
+                    <span class="reg">${{prod.priceRange.regular.low}} &ndash; ${{prod.priceRange.regular.high}}</span>
+                    <span class="buy">${{prod.priceRange.selling.low}} &ndash; ${{prod.priceRange.selling.high}}</span>
+                    -->
+
+                    <!-- This is more consistant with the 'Visual Reference' of the challenge -->
+                    <span class="buy btnModal">${{prod.priceRange.selling.low}}</span>
+                  </figcaption>
+                </figure>
+              </li>
+              </template>
+            </ul>
+          </section>
+
+          <dialog class="modal">
+            <nav class="btnClose">
+              <i class="fas fa-times" aria-hidden="true"></i>
+            </nav>
+
+            <div class="carousal">
+              <ul class="caraList">
+                <li v-for="img in cara.images">
+                  <figure class="prodThumb">
+                    <img v-bind:src="img.href" />
+                  </figure>
+                </li>
+              </ul>
+              <nav class="caraNav">
+                <span class="btn btnLeft" v-bind:class="cara.images.length > 1 ? '' : 'hidden'">
+                  <i class="fas fa-angle-left" aria-hidden="true"></i>
+                </span>
+                <span class="btn btnRight" v-bind:class="cara.images.length > 1 ? '' : 'hidden'">
+                  <i class="fas fa-angle-right" aria-hidden="true"></i>
+                </span>
+                  <ul class="Idx idxList" v-bind:class="cara.images.length > 1 ? '' : 'hidden'">
+                    <li v-for="img, idx in cara.images">
+                      {{idx}}
+                    </li>
+                  </ul>
+              </nav>
+            </div>
+          </dialog>
+        </article>
+
+
+
+        <script src="js/vendor/modernizr-3.5.0.min.js"></script>
+        <script src="js/vendor/fontawesome-all.min.js"></script>
+        <!--script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.2.1.min.js"><\/script>')</script-->
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+        <script src="js/plugins.js"></script>
+        <script src="js/helpers.js"></script>
+        <script src="js/modal.js"></script>
+        <script src="js/carousal.js"></script>
+        <script src="js/main.js"></script>
+    </body>
+</html>
