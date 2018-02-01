@@ -1,7 +1,3 @@
-QUnit.test( "hello test", function( assert ) {
-  assert.ok( 1 == "1", "Passed!" );
-});
-
 QUnit.test("modal", function( assert ) {
   modal.init('qModalTest');
   let dia = $('dialog');
@@ -17,8 +13,4 @@ QUnit.test("modal", function( assert ) {
 
   targ3.click();
   assert.ok( $(dia).css('display') === 'none', "close btn clicked and the modal is closed" );
-});
-
-QUnit.test("carousal", function( assert ) {
-  assert.ok( 1 == "1", "Passed!" );
 });
